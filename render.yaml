@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: namiq-english-exam
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT --workers 2 --threads 4 app:app
+    healthCheckPath: /health
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: TEACHER_PASSWORD
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: TEACHER_EMAIL
+        value: namiq.b1993@gmail.com
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false

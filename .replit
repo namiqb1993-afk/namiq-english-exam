@@ -1,0 +1,7 @@
+entrypoint = "app.py"
+run = "python app.py"
+modules = ["python-3.11"]
+
+[deployment]
+run = ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-5000} --workers 2 --threads 4 app:app"]
+deploymentTarget = "autoscale"

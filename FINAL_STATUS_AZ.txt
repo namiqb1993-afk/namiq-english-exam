@@ -1,0 +1,11 @@
+Namiq Bağırlı — English Exam Platform
+MƏNBƏ KODU / SERVER PAKETİ — CANLI SAYT DEYİL
+
+26 sual (13+4+4+4+1), serverdə saxlanma və yoxlama, müəllim paneli, CSV ixracı, esse balının müəllim təsdiqi, Resend e-poçt inteqrasiyası kodda mövcuddur.
+Qrammatika bankı: 40 orijinal məşq sualı; 2026 DİM kitabının orijinal sualları DEYİL. İcazə və cavab doğrulaması olmadan kitab suallarının ictimai yayımı nəzərdə tutulmayıb.
+Dinləmə: audio faylları yoxdur. Müəllim üçün lokal audio yükləmə interfeysi var; fayl yaddaşının davamlı saxlanması üçün ayrıca fayl anbarı lazımdır.
+Esse: müəllim qiymətləndirir; avtomatik AI yoxlaması yoxdur.
+Gmail bildirişləri: yalnız RESEND_API_KEY və təsdiqli EMAIL_FROM olduqda göndərilə bilər.
+Database: production üçün davamlı PostgreSQL tələb olunur.
+Host: Render blueprint təlimatı render.yaml faylındadır; hosting ödənişli ola bilər.
+Paket serverdə end-to-end sınaqdan keçməyib; bu mühitdə Flask asılılıqları quraşdırıla bilmədi.
