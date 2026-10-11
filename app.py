@@ -15,7 +15,7 @@ if DB.startswith('postgres://'):DB=DB.replace('postgres://','postgresql+psycopg:
 if DB.startswith('postgresql://'):DB=DB.replace('postgresql://','postgresql+psycopg://',1)
 engine=create_engine(DB,pool_pre_ping=True)
 with engine.begin() as c:
- c.execute(text('CREATE TABLE IF NOT EXISTS attempts (id VARCHAR(36) PRIMARY KEY, student_key VARCHAR(80), first_name VARCHAR(100), last_name VARCHAR(100), created_at VARCHAR(50), submitted_at VARCHAR(50), exam_json TEXT, answers_json TEXT, score_objective FLOAT, essay_score FLOAT, essay_approved INTEGER DEFAULT 0, token_hash VARCHAR(100), email_status VARCHAR(30) DEFAULT :p)'),{'p':'pending'})
+c.execute(text("CREATE TABLE IF NOT EXISTS attempts (id VARCHAR(36) PRIMARY KEY, student_key VARCHAR(80), first_name VARCHAR(100), last_name VARCHAR(100), created_at VARCHAR(50), submitted_at VARCHAR(50), exam_json TEXT, answers_json TEXT, score_objective FLOAT, essay_score FLOAT, essay_approved INTEGER DEFAULT 0, token_hash VARCHAR(100), email_status VARCHAR(30) DEFAULT 'pending')"))
 
 def now():return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')
 def check_teacher():return session.get('teacher') is True
